@@ -1,0 +1,5 @@
+# Jetson Python 3.10 versions observed; ROS/cv_bridge and MotorBridge installed separately.
+numpy==1.23.5
+opencv-python==4.11.0.86
+websocket-client==1.8.0
+msgpack==1.1.0

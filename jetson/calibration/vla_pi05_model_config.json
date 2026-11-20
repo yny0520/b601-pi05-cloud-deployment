@@ -1,0 +1,14 @@
+{
+  "id": "pi05_b601_lora_6000",
+  "label": "螺丝刀入盒 · Pi0.5云端 · 6000步",
+  "collection_profile": "pick_place",
+  "model_dir": "/root/experiments/pi05_b601/checkpoints/pi05_b601_lora/formal_20261120_01/5999",
+  "backbone": "/root/experiments/pi05_b601/checkpoints/pi05_b601_lora/formal_20261120_01/5999",
+  "units": "radians",
+  "task": "Pick up the screwdriver, place it inside the box, release it, and return the arm to its home pose.",
+  "fps": 14,
+  "motion_profile": "/home/jetson/Desktop/b601-rs/calibration/vla_pi05_pick_place_motion_config.json",
+  "policy_type": "pi05_remote",
+  "endpoint": "ws://127.0.0.1:18015",
+  "action_horizon": 16
+}

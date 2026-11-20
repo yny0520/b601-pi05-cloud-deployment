@@ -1,0 +1,12 @@
+{
+  "fourcc": "MJPG",
+  "width": 640,
+  "height": 360,
+  "device_fps": 60,
+  "target_received_hz": 30,
+  "auto_exposure": 3,
+  "exposure_dynamic_framerate": 0,
+  "note": "本机DECXIN请求30fps实测15Hz；请求60fps实测30Hz，实际帧率以接收与质量报告为准。",
+  "focus_absolute": 1023,
+  "focus_automatic_continuous": 0
+}

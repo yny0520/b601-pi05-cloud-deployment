@@ -1,0 +1,2 @@
+# B601 local control page: fixed hardware I/O setup only.
+jetson ALL=(root) NOPASSWD: /usr/local/sbin/b601-io serial-stop, /usr/local/sbin/b601-io serial-start, /usr/local/sbin/b601-io can-config, /usr/local/sbin/b601-io can-up

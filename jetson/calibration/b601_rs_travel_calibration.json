@@ -1,0 +1,465 @@
+{
+  "schema": "b601-rs-encoder-travel-calibration-v1",
+  "created_utc": "2026-10-28T14:13:21.149299+00:00",
+  "source_session": "/home/jetson/Desktop/b601-rs/limit-recordings/20261028-210103-166698/session.json",
+  "source_files": [
+    {
+      "round": 1,
+      "path": "/home/jetson/Desktop/b601-rs/limit-recordings/20261028-210103-166698/round-1.csv",
+      "sha256": "6d1860891e5a097d614b1fd3dfc19c3f3bf0c3cb455ab4416eca361973139884"
+    },
+    {
+      "round": 2,
+      "path": "/home/jetson/Desktop/b601-rs/limit-recordings/20261028-210103-166698/round-2.csv",
+      "sha256": "0b9b329f860241b348ac5eee07de005a33c2dc104cad35d5069d4ff8c0a04282"
+    },
+    {
+      "round": 3,
+      "path": "/home/jetson/Desktop/b601-rs/limit-recordings/20261028-210103-166698/round-3.csv",
+      "sha256": "b38ec854232bb86f742f210a7f3d6c7355ce7eb1a40917e5dfca236351a714ec"
+    }
+  ],
+  "user_annotations": {
+    "j2_round_2_not_swept": true,
+    "leader_model_user_confirmed": "reBot B601 Star Arm",
+    "leader_must_not_assume_so_arm": true,
+    "updated_utc": "2026-10-28T13:26:59.513202+00:00",
+    "note": "用户纠正第二轮忘记移动J2，第一轮有效；用户确认主臂是reBot B601 Star Arm，尺寸像SO-ARM但型号不同。"
+  },
+  "leader_model_user_confirmed": "reBot B601 Star Arm",
+  "coordinate_system": "RobStride mechPos 0x7019 load-side counted encoder radians",
+  "hardware_zero_changed": false,
+  "applied_to_control_program": false,
+  "teleoperation_ready": false,
+  "joints": {
+    "1": {
+      "motor_id": 1,
+      "model": "rs-06",
+      "joint": "shoulder_pan",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1892,
+          "read_errors": 0,
+          "min_rad": -2.642665386199951,
+          "max_rad": 2.5931944847106934,
+          "min_deg": -151.41357329456696,
+          "max_deg": 148.57909943052502,
+          "max_sampling_gap_s": 0.1393369999999976,
+          "max_step_deg": 15.153809447332545,
+          "min_endpoint_support_1deg": 49,
+          "max_endpoint_support_1deg": 28
+        },
+        {
+          "count": 770,
+          "read_errors": 0,
+          "min_rad": -2.6433045864105225,
+          "max_rad": 2.5931944847106934,
+          "min_deg": -151.45019676889655,
+          "max_deg": 148.57909943052502,
+          "max_sampling_gap_s": 0.13305899999999937,
+          "max_step_deg": 19.562993669804673,
+          "min_endpoint_support_1deg": 9,
+          "max_endpoint_support_1deg": 13
+        }
+      ],
+      "status": "recorded",
+      "notes": [],
+      "observed_union_rad": [
+        -2.6433045864105225,
+        2.5931944847106934
+      ],
+      "repeat_overlap_rad": [
+        -2.642665386199951,
+        2.5931944847106934
+      ],
+      "endpoint_difference_deg": [
+        0.03662347432960837,
+        0.0
+      ],
+      "commissioning_limits_deg": [
+        -140,
+        140
+      ],
+      "commissioning_limits_rad": [
+        -2.443460952792061,
+        2.443460952792061
+      ],
+      "commissioning_limits_active": false
+    },
+    "2": {
+      "motor_id": 2,
+      "model": "rs-06",
+      "joint": "shoulder_lift",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1892,
+          "read_errors": 0,
+          "min_rad": -0.01883387565612793,
+          "max_rad": 3.637622356414795,
+          "min_deg": -1.0791015869703144,
+          "max_deg": 208.42040848500105,
+          "max_sampling_gap_s": 0.13946200000000886,
+          "max_step_deg": 11.621088759534794,
+          "min_endpoint_support_1deg": 1687,
+          "max_endpoint_support_1deg": 14
+        },
+        {
+          "count": 770,
+          "read_errors": 0,
+          "min_rad": -0.01802428625524044,
+          "max_rad": 0.10128535330295563,
+          "min_deg": -1.0327155311609366,
+          "max_deg": 5.80322327075079,
+          "max_sampling_gap_s": 0.13251999999999953,
+          "max_step_deg": 2.338867867346402,
+          "min_endpoint_support_1deg": 748,
+          "max_endpoint_support_1deg": 2
+        }
+      ],
+      "status": "single_pass_user_confirmed",
+      "notes": [
+        "J2采用第一轮行程；第二轮仅保留原始数据，不作为行程端点复测。"
+      ],
+      "observed_union_rad": [
+        -0.01883387565612793,
+        3.637622356414795
+      ],
+      "repeat_overlap_rad": null,
+      "endpoint_difference_deg": [
+        0.046386055809378005,
+        202.61718521425027
+      ],
+      "usable_rounds": [
+        1
+      ],
+      "excluded_rounds": [
+        {
+          "round": 2,
+          "reason": "用户确认第二轮未移动J2"
+        }
+      ],
+      "commissioning_limits_deg": [
+        0,
+        165
+      ],
+      "commissioning_limits_rad": [
+        0.0,
+        2.8797932657906435
+      ],
+      "commissioning_limits_active": false
+    },
+    "3": {
+      "motor_id": 3,
+      "model": "rs-06",
+      "joint": "elbow_flex",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1893,
+          "read_errors": 0,
+          "min_rad": -0.0014913611812517047,
+          "max_rad": 4.239326477050781,
+          "min_deg": -0.08544870141536767,
+          "max_deg": 242.8955151130736,
+          "max_sampling_gap_s": 0.13940999999999804,
+          "max_step_deg": 18.483898913023527,
+          "min_endpoint_support_1deg": 979,
+          "max_endpoint_support_1deg": 48
+        },
+        {
+          "count": 771,
+          "read_errors": 0,
+          "min_rad": -0.0014913611812517047,
+          "max_rad": 4.2382612228393555,
+          "min_deg": -0.08544870141536767,
+          "max_deg": 242.83448054265037,
+          "max_sampling_gap_s": 0.13168499999999916,
+          "max_step_deg": 15.788569662753096,
+          "min_endpoint_support_1deg": 138,
+          "max_endpoint_support_1deg": 17
+        }
+      ],
+      "status": "recorded",
+      "notes": [],
+      "observed_union_rad": [
+        -0.0014913611812517047,
+        4.239326477050781
+      ],
+      "repeat_overlap_rad": [
+        -0.0014913611812517047,
+        4.2382612228393555
+      ],
+      "endpoint_difference_deg": [
+        0.0,
+        0.061034570423233944
+      ],
+      "commissioning_limits_deg": [
+        0,
+        175
+      ],
+      "commissioning_limits_rad": [
+        0.0,
+        3.0543261909900767
+      ],
+      "commissioning_limits_active": false
+    },
+    "4": {
+      "motor_id": 4,
+      "model": "rs-00",
+      "joint": "wrist_flex",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1893,
+          "read_errors": 0,
+          "min_rad": -2.407621145248413,
+          "max_rad": 1.6202672719955444,
+          "min_deg": -137.94653028918782,
+          "max_deg": 92.8344763685201,
+          "max_sampling_gap_s": 0.13952000000000453,
+          "max_step_deg": 26.059571127720048,
+          "min_endpoint_support_1deg": 20,
+          "max_endpoint_support_1deg": 34
+        },
+        {
+          "count": 771,
+          "read_errors": 0,
+          "min_rad": -2.4152913093566895,
+          "max_rad": 1.621877908706665,
+          "min_deg": -138.3859983207648,
+          "max_deg": 92.92675905439614,
+          "max_sampling_gap_s": 0.13145699999999927,
+          "max_step_deg": 27.511962703223634,
+          "min_endpoint_support_1deg": 8,
+          "max_endpoint_support_1deg": 6
+        }
+      ],
+      "status": "recorded",
+      "notes": [],
+      "observed_union_rad": [
+        -2.4152913093566895,
+        1.621877908706665
+      ],
+      "repeat_overlap_rad": [
+        -2.407621145248413,
+        1.6202672719955444
+      ],
+      "endpoint_difference_deg": [
+        0.4394680315769604,
+        0.09228268587604228
+      ],
+      "commissioning_limits_deg": [
+        -75,
+        85
+      ],
+      "commissioning_limits_rad": [
+        -1.3089969389957472,
+        1.4835298641951802
+      ],
+      "commissioning_limits_active": false
+    },
+    "5": {
+      "motor_id": 5,
+      "model": "rs-00",
+      "joint": "wrist_yaw",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1893,
+          "read_errors": 0,
+          "min_rad": -2.0163028240203857,
+          "max_rad": 1.8645919561386108,
+          "min_deg": -115.52564203667725,
+          "max_deg": 106.83324960078471,
+          "max_sampling_gap_s": 0.137038000000004,
+          "max_step_deg": 19.856690096567927,
+          "min_endpoint_support_1deg": 10,
+          "max_endpoint_support_1deg": 6
+        },
+        {
+          "count": 771,
+          "read_errors": 0,
+          "min_rad": -1.8510547876358032,
+          "max_rad": 1.852627158164978,
+          "min_deg": -106.0576269790164,
+          "max_deg": 106.14771717416887,
+          "max_sampling_gap_s": 0.13125399999999843,
+          "max_step_deg": 28.204103764748282,
+          "min_endpoint_support_1deg": 12,
+          "max_endpoint_support_1deg": 12
+        }
+      ],
+      "status": "endpoint_difference_requires_review",
+      "notes": [],
+      "observed_union_rad": [
+        -2.0163028240203857,
+        1.8645919561386108
+      ],
+      "repeat_overlap_rad": [
+        -1.8510547876358032,
+        1.852627158164978
+      ],
+      "endpoint_difference_deg": [
+        9.468015057660846,
+        0.6855324266158398
+      ],
+      "commissioning_limits_deg": [
+        -85,
+        85
+      ],
+      "commissioning_limits_rad": [
+        -1.4835298641951802,
+        1.4835298641951802
+      ],
+      "commissioning_limits_active": false
+    },
+    "6": {
+      "motor_id": 6,
+      "model": "rs-00",
+      "joint": "wrist_roll",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1893,
+          "read_errors": 0,
+          "min_rad": -3.4571328163146973,
+          "max_rad": 4.804965496063232,
+          "min_deg": -198.07911959100824,
+          "max_deg": 275.3042436304072,
+          "max_sampling_gap_s": 0.13706500000000688,
+          "max_step_deg": 33.688473741362195,
+          "min_endpoint_support_1deg": 2,
+          "max_endpoint_support_1deg": 2
+        },
+        {
+          "count": 771,
+          "read_errors": 0,
+          "min_rad": -3.2788071632385254,
+          "max_rad": 4.544111728668213,
+          "min_deg": -187.86181229082948,
+          "max_deg": 260.3584236885853,
+          "max_sampling_gap_s": 0.13130099999999878,
+          "max_step_deg": 47.02590707705115,
+          "min_endpoint_support_1deg": 1,
+          "max_endpoint_support_1deg": 1
+        }
+      ],
+      "status": "endpoint_difference_requires_review",
+      "notes": [
+        "观测跨越一整圈且两轮端点不同；不能从本次旋转范围推定机械硬止挡。"
+      ],
+      "observed_union_rad": [
+        -3.4571328163146973,
+        4.804965496063232
+      ],
+      "repeat_overlap_rad": [
+        -3.2788071632385254,
+        4.544111728668213
+      ],
+      "endpoint_difference_deg": [
+        10.217307300178755,
+        14.945819941821902
+      ],
+      "commissioning_limits_deg": [
+        -85,
+        85
+      ],
+      "commissioning_limits_rad": [
+        -1.4835298641951802,
+        1.4835298641951802
+      ],
+      "commissioning_limits_active": false
+    },
+    "7": {
+      "motor_id": 7,
+      "model": "rs-00",
+      "joint": "gripper",
+      "selected_rounds": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "count": 1893,
+          "read_errors": 0,
+          "min_rad": -0.022204352542757988,
+          "max_rad": 5.995218753814697,
+          "min_deg": -1.2722156875206105,
+          "max_deg": 343.5007318512631,
+          "max_sampling_gap_s": 0.13680399999999793,
+          "max_step_deg": 62.771460208411504,
+          "min_endpoint_support_1deg": 995,
+          "max_endpoint_support_1deg": 1
+        },
+        {
+          "count": 771,
+          "read_errors": 0,
+          "min_rad": -0.05901990085840225,
+          "max_rad": 5.989351749420166,
+          "min_deg": -3.3815912264669934,
+          "max_deg": 343.1645772610717,
+          "max_sampling_gap_s": 0.13113500000000045,
+          "max_step_deg": 64.57764909290802,
+          "min_endpoint_support_1deg": 2,
+          "max_endpoint_support_1deg": 1
+        }
+      ],
+      "status": "recorded",
+      "notes": [
+        "J7扩展软件目标范围至-3..340度，位于人工记录联合范围-3.38..343.50度之内；尚未完成该范围的带动力验证，不代表机械硬止挡。"
+      ],
+      "observed_union_rad": [
+        -0.05901990085840225,
+        5.995218753814697
+      ],
+      "repeat_overlap_rad": [
+        -0.022204352542757988,
+        5.989351749420166
+      ],
+      "endpoint_difference_deg": [
+        2.109375538946383,
+        0.3361545901913475
+      ],
+      "commissioning_limits_deg": [
+        -3,
+        340
+      ],
+      "commissioning_limits_rad": [
+        -0.05235987755982989,
+        5.934119456780721
+      ],
+      "commissioning_limits_active": false
+    }
+  },
+  "teleoperation_blockers": [
+    "专用tools/b601_rs_teleop.py已接入本文件软限位并通过两臂连续只读及J1小范围带运动验证；J2..J7尚待验证",
+    "主臂关节方向/夹爪比例使用参考初值，需按遥操作使用说明逐关节验证；R采用会话相对对齐，不是永久硬件零位标定",
+    "原下载teleoperate-rs仍有缺反馈返回0等问题；请使用新专用启动脚本，不直接运行旧程序"
+  ],
+  "notes": [
+    "本文件标定人工覆盖的观测行程，不证明机械硬止挡或多关节组合无碰撞。",
+    "不根据端点重新设置零点，也不修改用户的原始CSV。",
+    "commissioning_limits 已由专用遥操作程序加载为调试限位，但尚未完成实机运动验证。",
+    "建议范围取本机已下载URDF与Studio较窄范围，非零边界向内5度；J2/J3/J7保留既有零点边界。"
+  ]
+}

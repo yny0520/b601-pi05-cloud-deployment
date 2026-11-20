@@ -1,0 +1,18 @@
+{
+  "python": "3.11.18",
+  "packages": {
+    "jax": "0.5.3",
+    "jaxlib": "0.5.3",
+    "flax": "0.10.2",
+    "orbax-checkpoint": "0.11.13",
+    "lerobot": "0.4.4",
+    "torch": "2.7.1",
+    "numpy": "1.26.4",
+    "websockets": "15.0.1",
+    "msgpack": "1.1.0",
+    "openpi": "0.1.0",
+    "openpi-client": "0.1.0",
+    "av": "17.0.0"
+  },
+  "openpi_git_commit": null
+}

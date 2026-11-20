@@ -1,0 +1,20 @@
+[Unit]
+Description=B601 Pi0.5 inference localhost only
+After=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/root/experiments/pi05_b601
+Environment=OPENPI_DATA_HOME=/root/experiments/pi05_b601/openpi-cache
+Environment=HF_LEROBOT_HOME=/root/experiments/pi05_b601
+Environment=HF_HUB_OFFLINE=1
+Environment=HF_DATASETS_OFFLINE=1
+Environment=PYTHONPATH=/root/experiments/pi05_b601/openpi-src/src:/root/experiments/pi05_b601
+Environment=PYTHONUNBUFFERED=1
+Environment=XLA_PYTHON_CLIENT_MEM_FRACTION=0.70
+Environment=OMP_NUM_THREADS=4
+ExecStart=/root/experiments/pi05_b601/.venv/bin/python /root/experiments/pi05_b601/inference/serve_b601.py
+StandardOutput=append:/root/experiments/pi05_b601/inference/server.log
+StandardError=append:/root/experiments/pi05_b601/inference/server.log
+Restart=no
+[Install]
+WantedBy=multi-user.target

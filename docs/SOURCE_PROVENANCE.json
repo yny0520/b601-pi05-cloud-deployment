@@ -1,0 +1,316 @@
+{
+  "baseline": "pi05-success-20261120-v1",
+  "note": "Local source copies; sanitized config notes and new documentation are not exact-byte live files. Cloud provenance added on server.",
+  "files": [
+    {
+      "file": "jetson/tools/b601_collection_profiles.py",
+      "sha256": "367de4345303082cac1bd68454bdd22e9d291b7a43b98b19de96b22385003759",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_control_io.py",
+      "sha256": "fee4c751de3a45e4f77fd3c0180509d9e5ad7b89d964c595ec80dcb7934fcf8d",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_control_timing.py",
+      "sha256": "53b54110e3a5d6afb7f714044cdb0e6f6b3f6f1a572031ea120d20942f1a91da",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_dataset.py",
+      "sha256": "ab63cfd391b275e4c63cec6ab6bfc0769e7e0a44ec1d488729d7e8651934de14",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_dataset_web.py",
+      "sha256": "e26899b6f70c5640ca0ffb94211c7df48c75746ffb68b6d40c3fac444142d5c5",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_grasp_observer.py",
+      "sha256": "d31c40d0d61f89b4e261692e9826705aa6fef23361ef524f6848c7081bebb3d7",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_hand_camera.py",
+      "sha256": "1b81219a4b2ee1908ce8a322acc9b558066062bb918d47cb0e9230d400d32a81",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_insertion_collector.py",
+      "sha256": "da35f05d5d051683993aa5576a53203f269a689b099b7fec47d3de7726af908a",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_lerobot_export.py",
+      "sha256": "8ba8ac1b9621e06671de7dbc4018337d59253c08ebc924bdb53e9e59769a176c",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_pi05_remote_worker.py",
+      "sha256": "4f1564bfdd31fce1a9f7189356cfec70aa8b6566df458b2ac1c75cd8da6579f8",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_pi05_supervised_demo.py",
+      "sha256": "fc91dd02851a47aa5b7c46b0e8e9519ffc4dd08f6e316190e033a7e44f8616a9",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_rs_calibrate.py",
+      "sha256": "50763490a2169345855a25c849e90741fdf249c6a9da9ec222147b348fec598f",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_rs_feedback.py",
+      "sha256": "0083a75a2d07e39b73c4497017be1abe18e9e79f78a2790d07a91d33d98a1463",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_rs_gravity.py",
+      "sha256": "c3637670890dedd1ac6dad32125a40440c19e6ec84884a9424194ca23a42ae83",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_rs_teleop.py",
+      "sha256": "c76d4b5a72a15b5f8f0299c6e16ab3443d297b9066865ef9783b7ec8bf62d1ee",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_telemetry.py",
+      "sha256": "ad59b3dc97e179be1bb409b61c2a57fc9cc59edb44c7fd15055d9f6a705797ab",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_teleop_manager.py",
+      "sha256": "9ff95f141734aab6b8d7fe00e788cc141559eebde074be4324382c5187814815",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_vla_filter.py",
+      "sha256": "b9f4d1d4bda223647a8d093527f12c2376e2bf97afcd0cad534e0e6009c6c18d",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_vla_inference_client.py",
+      "sha256": "4c91de0faf6d8a4d7c625540ab52811257c588ce41a714a3e12792e8f02c79f8",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_vla_model.py",
+      "sha256": "895895957591f5d3a4074f71a2f9333b8204f7cc78cc4078dd917c3a0f0f56aa",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_vla_motion.py",
+      "sha256": "09179e476d71e65c9f94515769d9dea46b2e657b3cec0547f79287e650ed3a9f",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_vla_runner.py",
+      "sha256": "c27d6feadff4b2c1cf3dbb3c75ba09f2f56077305984c892af36599677027a84",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/camera_preview_ros_server.py",
+      "sha256": "9abd9ddc39ef6addac47274970a575b770e640141166642044e94447a2676d3a",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/star_arm_readonly.py",
+      "sha256": "ab7562a28a211aa59ac54687f6578256d55fd346942e7ddb277138264366e7e9",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_preview_dashboard.html",
+      "sha256": "e4d1427a8ac6f97596e51e5aa18174d3a5a8fc8d016500031e9d500ddce03957",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_collection_panel.html",
+      "sha256": "9c716049be0264b19de4be9b87ca7aad1702793d1015b93b1022103ed78e7783",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_review.html",
+      "sha256": "2545a67bae83721c89b96640b43a98e00ec39fe5d9356a3b7304a2ffef49afdf",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601_io_helper.sh",
+      "sha256": "457346765abb23eb9164e25a2c94b6b603ce0c1d27fc968c4e3984cbe3fe69dc",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/b601-web.sudoers",
+      "sha256": "4ad629ee4536c42de9171dd57688b2c6d98ffaa2b48d8982accfeaa0873366e4",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/install_b601_web_io.sh",
+      "sha256": "015801d4e00f148c42a2860aa38a385aed4dec9632ae53ba40c75df9927156a1",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_control_io.py",
+      "sha256": "24ec5322ed972960861108741c7081b9d558e78737b2b7936192e721a08917ac",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_control_timing.py",
+      "sha256": "711522c1713888a106802c018ef8be17ec346781ce6ac0ac0b3ea715affecf96",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_dataset.py",
+      "sha256": "bfee86f140b897a115cc26ca52c5ed4a6d049eb66233fbc876e70a64256b72c0",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_fault_hold.py",
+      "sha256": "db062d34c324c4cb432022caab19ac46dc8f2feeab1edb893517de0148563860",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_grasp_observer.py",
+      "sha256": "a97f9451011657d2297674df5ddfb0795d5ff1d2a34ebdfb013b6e24b15038f8",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_lerobot_export.py",
+      "sha256": "1efa259c2b504d1d0c759f4c54f881096027565e7c298c16f121535d2bbd15c1",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_pi05_supervised_demo.py",
+      "sha256": "7d32542ac3e12e493f5c6d0a69e8b6850a8dc402d68e460cf1114ea939e66652",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_rs_feedback.py",
+      "sha256": "e529bbbae5f56859e81cfe9bb74795bee6b89df7f986f04a70491803488b01c8",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_rs_gravity.py",
+      "sha256": "e9fdf38b30828b92627b3c1b15a5b11a8bac3eadccbd2df87a23b5e73d7c2b4b",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_rs_teleop.py",
+      "sha256": "e60f2a421fc4f9343ea25d7a501611060c8a7a744c01fcb8f31211765bea12bd",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_teleop_manager.py",
+      "sha256": "aac7e071df6c778005e137ce47e6fc27fd09d11343a36f66c8bcff89972f7ec9",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_filter.py",
+      "sha256": "ae5439b99ca85778f903a4cc032821dc21daac59a1c1fb8394bdf613017118b7",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_inference_client.py",
+      "sha256": "11d530d9bf117a8d76b058a5fc20f53b2c6fe3170fadfe300746beb1fe0a671b",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_model.py",
+      "sha256": "b6701b68088de917dffd00ab20c55484e2d31db5a46f4dec85ca2d26b1205eeb",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_motion.py",
+      "sha256": "5c98beaf83e01a2b0853c30cf435aa626bf570758644c4e4f6c8f6197014e589",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_runner.py",
+      "sha256": "acc650150dfbe575dbd5b2909d8a08bc00d1eba5ecbf980d95b7c76f44075953",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/test_b601_vla_step.py",
+      "sha256": "2ee287dcc8c579e474749e990430466b250ace24850b7b618abf5a651417fa89",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/tools/run_b601_offline_checks.py",
+      "sha256": "f941a969aadc103890ad4165cd1a00cae681a5efcc2d5350775ed0825cf30d93",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/experiments/pi05_b601/remote_inference_client.py",
+      "sha256": "7006d08374180f37671e47d298cdfce2d9d3f4a64b84020ca5091e75c66299af",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/vla_model_config.json",
+      "sha256": "5f329e297cf9f70303a82e79e098aee413e28d947485c4fba56085bb6a962aee",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/vla_pi05_model_config.json",
+      "sha256": "5f329e297cf9f70303a82e79e098aee413e28d947485c4fba56085bb6a962aee",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/vla_pi05_pick_place_motion_config.json",
+      "sha256": "fffd603f2e96e37b29ae6b0e76a696d4b5e52aed3998bdbf97e760af44d1b597",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/b601_rs_travel_calibration.json",
+      "sha256": "343f2af5352f13214a4447c7bd66d3a86a0ea3a8fbb1ff59887e39d7a4ca0e56",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/hand_camera_config.json",
+      "sha256": "60d6ee1c5fe13fc1e0bea55371c9c6a838b5a877114eca4eaa57eee2b3d66172",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/calibration/collection_settings.json",
+      "sha256": "d73264d889598ac170d54f8b66307bf3ee681ed520cef0d28ffa9af97d0b12fc",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/launchers/启动完整遥操作.sh",
+      "sha256": "17697d17794aea40029420ae25d55195f75d749c0443c3c1a94bc9ad9e222d97",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/launchers/启动遥操作.sh",
+      "sha256": "a0b4db5c28aaeb9eca3d122758eafad48472a690580e65fa7b537cae5d091eb4",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/launchers/停止遥操作.sh",
+      "sha256": "1e11153c28ea6dde4305adcd64548b5b257b2d9f4df7834700c350af1bf1b59a",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "jetson/launchers/启动精细插接采集.sh",
+      "sha256": "82d0f29c5fb84e0483b2cb2d894e75a4752493ce4c1b6c7f821f9736ea83d242",
+      "origin": "jetson-success-baseline"
+    },
+    {
+      "file": "third_party/seeed_b601/gravity.py",
+      "sha256": "e48f0293b8cb255a63ba21930d1a5a079c49557f5e1e67bfc6305a73ee661237",
+      "origin": "Seeed-Projects/lerobot-robot-seeed-b601 B601-RS 1fa325dfd76493d4f8f25886078b96cc056528dd"
+    },
+    {
+      "file": "third_party/seeed_b601/assets/00-arm-rs_asm-v3.urdf",
+      "sha256": "2012b5aa3b58878109cb9e3c5deef919a87bd09a67d561662b2904a30dd4397e",
+      "origin": "Seeed-Projects/lerobot-robot-seeed-b601 B601-RS 1fa325dfd76493d4f8f25886078b96cc056528dd"
+    },
+    {
+      "file": "third_party/seeed_b601/LICENSE",
+      "sha256": "819e0f2d335305e243e5f62efcc9442a7de4edcc2cc9094513dd33b6046f41d3",
+      "origin": "Seeed MIT"
+    }
+  ]
+}

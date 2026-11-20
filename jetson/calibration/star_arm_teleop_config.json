@@ -1,0 +1,95 @@
+{
+  "schema": "b601-star-rs-teleop-v1",
+  "travel_calibration": "/home/jetson/Desktop/b601-rs/calibration/b601_rs_travel_calibration.json",
+  "directions": [
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    1,
+    1
+  ],
+  "scales": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    6.411214953271028
+  ],
+  "kp": [
+    50,
+    150,
+    150,
+    60,
+    50,
+    50,
+    12
+  ],
+  "kd": [
+    3,
+    10,
+    10,
+    5,
+    4,
+    4,
+    0.6
+  ],
+  "gripper_torque_nm": 1.8,
+  "max_command_lead_deg": [
+    10,
+    8,
+    8,
+    10,
+    10,
+    10,
+    45
+  ],
+  "physical_mapping_validated": false,
+  "powered_following_validated": false,
+  "powered_following_validated_joints": [
+    1
+  ],
+  "source_notes": [
+    "Success baseline 2026-11-20; see docs/BASELINE.md. Historical private notes omitted from public export."
+  ],
+  "gripper_mapping": {
+    "mode": "endpoints",
+    "leader_closed_deg": 1.5,
+    "leader_open_deg": 55.0,
+    "follower_closed_deg": -3.0,
+    "follower_open_deg": 340.0
+  },
+  "velocity_feedforward_ratio": [
+    0.25,
+    0.35,
+    0.35,
+    0.25,
+    0.15,
+    0.15,
+    0
+  ],
+  "gravity_feedforward": {
+    "enabled": true,
+    "autonomous_only": true,
+    "scales": [
+      0,
+      0.6,
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_torque_nm": [
+      0,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "slew_nm_s": 1.5
+  }
+}

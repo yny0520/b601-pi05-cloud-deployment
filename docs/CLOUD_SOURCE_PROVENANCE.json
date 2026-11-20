@@ -1,0 +1,78 @@
+{
+  "captured_at": "2026-11-20T07:35:39.128756+00:00",
+  "source": "actual server files",
+  "openpi_git_commit": null,
+  "note": "No parseable .git revision; hashes identify actual overlay, not a complete upstream checkout. No weights copied.",
+  "files": [
+    {
+      "file": "server/inference/serve_b601.py",
+      "source_relative_to_experiment": "inference/serve_b601.py",
+      "sha256": "7bcfcad5cb21f2385ffa3599fb6416982e70ecbe868e29d8e4797381d2e2be6a"
+    },
+    {
+      "file": "server/openpi_overlay/src/openpi/policies/b601_policy.py",
+      "source_relative_to_experiment": "openpi-src/src/openpi/policies/b601_policy.py",
+      "sha256": "dfc5bc6eb0646af9838f66061eb2d1669eb250cb0190f3a55c7a050fd6ee9059"
+    },
+    {
+      "file": "server/openpi_overlay/src/openpi/training/config.py",
+      "source_relative_to_experiment": "openpi-src/src/openpi/training/config.py",
+      "sha256": "9cf65a9b54fc0e21e8e3d183c1cf41a8f3c949994b529f407d3c5072cda73d67"
+    },
+    {
+      "file": "server/openpi_overlay/src/openpi/training/data_loader.py",
+      "source_relative_to_experiment": "openpi-src/src/openpi/training/data_loader.py",
+      "sha256": "21285e97ddc5d4d7db6d588ca49769b627d6e591bd064c4c23e6c453f7961415"
+    },
+    {
+      "file": "server/openpi_overlay/scripts/train.py",
+      "source_relative_to_experiment": "openpi-src/scripts/train.py",
+      "sha256": "22f98a06aaa6e68e0f725d727ab95398238d1cae8a46bb94e829f330758a9baf"
+    },
+    {
+      "file": "server/openpi_overlay/LICENSE",
+      "source_relative_to_experiment": "openpi-src/LICENSE",
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
+      "file": "server/environment/openpi-pyproject.toml",
+      "source_relative_to_experiment": "openpi-src/pyproject.toml",
+      "sha256": "f4ce4e532da2dffdee51ecb3ebc0e34d435a164612f62083bd96cce0655e0073"
+    },
+    {
+      "file": "server/environment/openpi-uv.lock",
+      "source_relative_to_experiment": "openpi-src/uv.lock",
+      "sha256": "1d95c48820a015be9cb305c9ae961ffc2c0dcc6072e3dca77602a0c8baf8d674"
+    },
+    {
+      "file": "server/openpi_overlay/run/launch.py",
+      "source_relative_to_experiment": "runs/formal_20261120_01/launch.py",
+      "sha256": "623543aa80472ca65251b961da5fef2dcf902d9bc41fb9388e4e734d66a93e94"
+    },
+    {
+      "file": "server/openpi_overlay/run/train_instrumented.py",
+      "source_relative_to_experiment": "runs/formal_20261120_01/train_instrumented.py",
+      "sha256": "9dc497c1bc61af55943694ec8a036df55c1f64fb905b589f0052c08cea1defa3"
+    },
+    {
+      "file": "training/episode_split.json",
+      "source_relative_to_experiment": "runs/formal_20261120_01/episode_split.json",
+      "sha256": "090c001d94fa5425e81637abd5b80197e5dea3213ac1975fc0021b5d1c959fba"
+    },
+    {
+      "file": "training/norm_stats.json",
+      "source_relative_to_experiment": "runs/formal_20261120_01/norm_stats.json",
+      "sha256": "5f1cb4eeecc9d4dd978123e9201f7a67e94b181f06ebb86aa499b801ff731d0e"
+    },
+    {
+      "file": "server/environment/cloud-environment.json",
+      "source_relative_to_experiment": "exports/b601-pi05-deployment-v1-staging/cloud-environment.json",
+      "sha256": "c68863de1d333b9eca6d5c3ccc6debf65c382af0220a6e9947870e2dd0697ced"
+    },
+    {
+      "file": "server/inference/b601-pi05-inference.service",
+      "source_relative_to_experiment": "/etc/systemd/system/b601-pi05-inference.service",
+      "sha256": "8724dd6b8fba9a17164ab92b01a6998a06622cf0bc8bdfadb1ef53a3925c9b80"
+    }
+  ]
+}

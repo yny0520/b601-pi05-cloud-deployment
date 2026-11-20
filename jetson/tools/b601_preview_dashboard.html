@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B601 · 遥操作与采集</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10151c;--surface:#19212b;--line:#2d3948;--text:#e7edf5;--muted:#9daebf;--accent:#68d7c5}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans CJK SC",sans-serif;font-size:14px}
+    button,input,select{font:inherit}
+    button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .app-header{height:70px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:16px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #397b74;border-radius:12px;background:#1a3636;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1px}
+    h1{font-size:18px;letter-spacing:.4px;margin:0;font-weight:650}
+    .brand p{margin:3px 0 0;color:var(--muted);font-size:12px}
+    .header-note{font-size:12px;color:var(--muted);text-align:right}
+    .workspace{height:calc(100dvh - 70px);display:grid;grid-template-columns:354px minmax(0,1fr);gap:18px;padding:18px}
+    .control-panel{min-height:0;overflow:auto;scrollbar-width:thin;scrollbar-color:#415064 transparent;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+    .monitor{min-width:0;min-height:0;display:flex;flex-direction:column}
+    .monitor-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 12px}
+    .monitor-heading h2{font-size:15px;margin:0;font-weight:600}
+    .monitor-heading p{color:var(--muted);font-size:12px;margin:0}
+    .camera-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;flex:1;min-height:0}
+    .camera-card{min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+    .camera-heading{display:flex;align-items:center;gap:9px;min-height:44px;padding:8px 12px;border-bottom:1px solid var(--line)}
+    .camera-index{color:var(--accent);font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:1px}
+    .camera-heading h3{font-size:13px;font-weight:600;margin:0;white-space:nowrap}
+    .camera-rate{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+    .camera-rate.stale{color:#ffb6a6}
+    .camera-expand{padding:4px 7px;border:1px solid var(--line);border-radius:5px;background:transparent;color:#bdcad8;font-size:11px;cursor:pointer;white-space:nowrap}
+    .camera-expand:hover{background:#293644;color:var(--text)}
+    .camera-viewport{flex:1;min-height:0;min-width:0;background:#080d12;position:relative}
+    .camera-viewport img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+    .camera-footer{display:flex;justify-content:space-between;gap:8px;padding:7px 12px;color:var(--muted);font-size:11px;line-height:1.4}
+    .camera-footer span:last-child{text-align:right}
+    .monitor-note{color:var(--muted);font-size:11px;line-height:1.5;margin:10px 2px 0}
+    .camera-grid.is-focused{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+    .camera-grid.is-focused .camera-card:not(.is-focused){display:none}
+    @media(min-width:1051px) and (max-height:720px){.app-header{height:58px}.workspace{height:calc(100dvh - 58px);padding:12px;gap:12px}.camera-grid{gap:10px}.camera-heading{min-height:38px;padding:6px 10px}.camera-footer{padding:5px 10px}}
+    @media(max-width:1200px) and (min-width:1051px){.workspace{grid-template-columns:320px minmax(0,1fr);gap:12px;padding:12px}.camera-heading{gap:6px;padding:8px}.camera-heading h3{font-size:12px}.camera-rate{font-size:10px}}
+    @media(max-width:1050px){.workspace{height:auto;min-height:calc(100dvh - 70px);grid-template-columns:minmax(0,1fr)}.monitor{grid-row:1;height:calc(100dvh - 108px);min-height:470px}.control-panel{overflow:visible}.collect{max-width:none}.header-note{display:none}}
+    @media(max-width:560px){.app-header{padding:0 14px}.brand p{font-size:11px}.workspace{padding:10px;gap:12px}.monitor{height:auto;min-height:0}.monitor-heading p{display:none}.camera-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:none;flex:none;gap:10px}.camera-viewport{flex:none;height:clamp(180px,55vw,300px)}.camera-heading{min-height:42px}.camera-footer{font-size:11px}.camera-grid.is-focused .camera-viewport{height:65dvh}}
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">RS</span><div><h1>B601 <span style="color:var(--muted);font-weight:400">/</span> 遥操作与采集</h1><p>主从臂控制 · 示范记录 · 实时视觉</p></div></div>
+    <span class="header-note">两台相机 · 四路预览<br>原始比例完整显示</span>
+  </header>
+  <main class="workspace">
+    <aside class="control-panel" aria-label="遥操作和数据采集">__COLLECTION_PANEL__</aside>
+    <section class="monitor" aria-labelledby="monitor-heading">
+      <div class="monitor-heading"><h2 id="monitor-heading">实时画面</h2><p>四路同屏 · 点击放大查看细节</p></div>
+      <div class="camera-grid" id="camera-grid">
+        <section class="camera-card">
+          <header class="camera-heading"><span class="camera-index">01</span><h3>腕部相机</h3><span class="camera-rate" data-sensor="hand">等待新帧</span><button class="camera-expand" type="button" aria-label="放大腕部相机" aria-pressed="false">放大</button></header>
+          <div class="camera-viewport"><img src="/stream/hand" alt="DECXIN腕部相机实时画面"></div>
+          <footer class="camera-footer"><span>DECXIN · 640 × 360</span><span>夹爪近景</span></footer>
+        </section>
+        <section class="camera-card">
+          <header class="camera-heading"><span class="camera-index">02</span><h3>顶置彩色</h3><span class="camera-rate" data-sensor="top">等待新帧</span><button class="camera-expand" type="button" aria-label="放大顶置彩色" aria-pressed="false">放大</button></header>
+          <div class="camera-viewport"><img src="/stream/top" alt="Gemini336L顶置彩色实时画面"></div>
+          <footer class="camera-footer"><span>Gemini 336L · 640 × 480</span><span>工作区全景</span></footer>
+        </section>
+        <section class="camera-card">
+          <header class="camera-heading"><span class="camera-index">03</span><h3>深度灰度</h3><span class="camera-rate" data-sensor="depth">等待新帧</span><button class="camera-expand" type="button" aria-label="放大深度灰度" aria-pressed="false">放大</button></header>
+          <div class="camera-viewport"><img src="/stream/depth" alt="Gemini336L深度灰度画面，固定0至2米标尺"></div>
+          <footer class="camera-footer"><span>0–2 m · 越亮越远</span><span>含距离标尺</span></footer>
+        </section>
+        <section class="camera-card">
+          <header class="camera-heading"><span class="camera-index">04</span><h3>深度热图</h3><span class="camera-rate" data-sensor="depth">等待新帧</span><button class="camera-expand" type="button" aria-label="放大深度热图" aria-pressed="false">放大</button></header>
+          <div class="camera-viewport"><img src="/stream/heatmap" alt="Gemini336L深度热图，蓝色近红色远"></div>
+          <footer class="camera-footer"><span>0–2 m · 蓝近 / 红远</span><span>含距离标尺</span></footer>
+        </section>
+      </div>
+      <p class="monitor-note">深度两图来自同一传感器：黑色为无效深度，暗灰为超过2 m；仅调整显示，原始深度完整保存。</p>
+    </section>
+  </main>
+  <script>
+    const cameraGrid=document.getElementById('camera-grid');
+    function resetCameraView(){cameraGrid.classList.remove('is-focused');for(const card of cameraGrid.children){card.classList.remove('is-focused');const b=card.querySelector('button');b.textContent='放大';b.setAttribute('aria-pressed','false');b.setAttribute('aria-label','放大'+card.querySelector('h3').textContent);}}
+    for(const button of cameraGrid.querySelectorAll('.camera-expand'))button.addEventListener('click',()=>{const card=button.closest('.camera-card'),wasFocused=card.classList.contains('is-focused');resetCameraView();if(!wasFocused){cameraGrid.classList.add('is-focused');card.classList.add('is-focused');button.textContent='返回四路';button.setAttribute('aria-pressed','true');button.setAttribute('aria-label','返回四路预览');}});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')resetCameraView();});
+  </script>
+</body>
+</html>

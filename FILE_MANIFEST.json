@@ -1,0 +1,458 @@
+{
+  "version": "b601-pi05-deployment-v1",
+  "created_at": "2026-11-20T07:35:39.244968+00:00",
+  "weights_included": false,
+  "motion_tuning_applied": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "6370bf6fd88687a865eb254715e49f50528a261fecce2de7754ecac9fa8e5d05",
+      "bytes": 269
+    },
+    {
+      "path": "README.md",
+      "sha256": "c93fedf68af5f8ba9cbd6f28ecf25634d98a3829d2f9c1c2158b8c7bcaa73917",
+      "bytes": 3417
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "c342785d53c3de6f962d8120ae4b3c9ac12c987353fc3e7c6ac322f9f12ba6e3",
+      "bytes": 1196
+    },
+    {
+      "path": "config/connection.env.example",
+      "sha256": "3fcaca4a4bc4c8d5df0a10b21b19552175e6f95f2cbdc387342b4a48db68e9ab",
+      "bytes": 120
+    },
+    {
+      "path": "docs/BASELINE.md",
+      "sha256": "62bdbbcf690432dda9e6bc34fb4dd96b5d05c8a3d21b45638a932a521bee8eb8",
+      "bytes": 2040
+    },
+    {
+      "path": "docs/CLOUD_SOURCE_PROVENANCE.json",
+      "sha256": "9a3bcd08a618659b2abc6b384da6e791faa4ae2d438e58029941904764be5ee8",
+      "bytes": 3521
+    },
+    {
+      "path": "docs/DEPLOYMENT.md",
+      "sha256": "1f0f634d1582574dc7f85a60e31902b7251b235efca6f9999b5d2cd81be06da6",
+      "bytes": 3462
+    },
+    {
+      "path": "docs/SOURCE_PROVENANCE.json",
+      "sha256": "7c48be09d4a7b38d81cb7f2b940176dcb7d788ebd62e263d66ac6ebfa321d09c",
+      "bytes": 12357
+    },
+    {
+      "path": "docs/WINDOWS_CODEX_PROMPT.md",
+      "sha256": "8d4cd5ee2f97ff97823c7a0d03ab1055e1b102901d8e044c1d0187f3bc5a47f7",
+      "bytes": 1535
+    },
+    {
+      "path": "jetson/calibration/b601_rs_travel_calibration.json",
+      "sha256": "343f2af5352f13214a4447c7bd66d3a86a0ea3a8fbb1ff59887e39d7a4ca0e56",
+      "bytes": 13960
+    },
+    {
+      "path": "jetson/calibration/collection_settings.json",
+      "sha256": "d73264d889598ac170d54f8b66307bf3ee681ed520cef0d28ffa9af97d0b12fc",
+      "bytes": 29
+    },
+    {
+      "path": "jetson/calibration/hand_camera_config.json",
+      "sha256": "60d6ee1c5fe13fc1e0bea55371c9c6a838b5a877114eca4eaa57eee2b3d66172",
+      "bytes": 341
+    },
+    {
+      "path": "jetson/calibration/star_arm_teleop_config.json",
+      "sha256": "f39e7d3838c4ec3aeb72f835628921e19480357431ff5dc3b218852899a65828",
+      "bytes": 1363
+    },
+    {
+      "path": "jetson/calibration/vla_model_config.json",
+      "sha256": "5f329e297cf9f70303a82e79e098aee413e28d947485c4fba56085bb6a962aee",
+      "bytes": 665
+    },
+    {
+      "path": "jetson/calibration/vla_pi05_model_config.json",
+      "sha256": "5f329e297cf9f70303a82e79e098aee413e28d947485c4fba56085bb6a962aee",
+      "bytes": 665
+    },
+    {
+      "path": "jetson/calibration/vla_pi05_pick_place_motion_config.json",
+      "sha256": "fffd603f2e96e37b29ae6b0e76a696d4b5e52aed3998bdbf97e760af44d1b597",
+      "bytes": 866
+    },
+    {
+      "path": "jetson/experiments/pi05_b601/remote_inference_client.py",
+      "sha256": "7006d08374180f37671e47d298cdfce2d9d3f4a64b84020ca5091e75c66299af",
+      "bytes": 3832
+    },
+    {
+      "path": "jetson/launchers/停止遥操作.sh",
+      "sha256": "1e11153c28ea6dde4305adcd64548b5b257b2d9f4df7834700c350af1bf1b59a",
+      "bytes": 128
+    },
+    {
+      "path": "jetson/launchers/启动完整遥操作.sh",
+      "sha256": "17697d17794aea40029420ae25d55195f75d749c0443c3c1a94bc9ad9e222d97",
+      "bytes": 367
+    },
+    {
+      "path": "jetson/launchers/启动精细插接采集.sh",
+      "sha256": "82d0f29c5fb84e0483b2cb2d894e75a4752493ce4c1b6c7f821f9736ea83d242",
+      "bytes": 1854
+    },
+    {
+      "path": "jetson/launchers/启动遥操作.sh",
+      "sha256": "a0b4db5c28aaeb9eca3d122758eafad48472a690580e65fa7b537cae5d091eb4",
+      "bytes": 134
+    },
+    {
+      "path": "jetson/tools/b601-web.sudoers",
+      "sha256": "4ad629ee4536c42de9171dd57688b2c6d98ffaa2b48d8982accfeaa0873366e4",
+      "bytes": 228
+    },
+    {
+      "path": "jetson/tools/b601_collection_panel.html",
+      "sha256": "9c716049be0264b19de4be9b87ca7aad1702793d1015b93b1022103ed78e7783",
+      "bytes": 32559
+    },
+    {
+      "path": "jetson/tools/b601_collection_profiles.py",
+      "sha256": "367de4345303082cac1bd68454bdd22e9d291b7a43b98b19de96b22385003759",
+      "bytes": 2148
+    },
+    {
+      "path": "jetson/tools/b601_control_io.py",
+      "sha256": "fee4c751de3a45e4f77fd3c0180509d9e5ad7b89d964c595ec80dcb7934fcf8d",
+      "bytes": 2997
+    },
+    {
+      "path": "jetson/tools/b601_control_timing.py",
+      "sha256": "53b54110e3a5d6afb7f714044cdb0e6f6b3f6f1a572031ea120d20942f1a91da",
+      "bytes": 1216
+    },
+    {
+      "path": "jetson/tools/b601_dataset.py",
+      "sha256": "ab63cfd391b275e4c63cec6ab6bfc0769e7e0a44ec1d488729d7e8651934de14",
+      "bytes": 25269
+    },
+    {
+      "path": "jetson/tools/b601_dataset_web.py",
+      "sha256": "e26899b6f70c5640ca0ffb94211c7df48c75746ffb68b6d40c3fac444142d5c5",
+      "bytes": 3117
+    },
+    {
+      "path": "jetson/tools/b601_grasp_observer.py",
+      "sha256": "d31c40d0d61f89b4e261692e9826705aa6fef23361ef524f6848c7081bebb3d7",
+      "bytes": 6670
+    },
+    {
+      "path": "jetson/tools/b601_hand_camera.py",
+      "sha256": "1b81219a4b2ee1908ce8a322acc9b558066062bb918d47cb0e9230d400d32a81",
+      "bytes": 3583
+    },
+    {
+      "path": "jetson/tools/b601_insertion_collector.py",
+      "sha256": "da35f05d5d051683993aa5576a53203f269a689b099b7fec47d3de7726af908a",
+      "bytes": 182
+    },
+    {
+      "path": "jetson/tools/b601_io_helper.sh",
+      "sha256": "457346765abb23eb9164e25a2c94b6b603ce0c1d27fc968c4e3984cbe3fe69dc",
+      "bytes": 1105
+    },
+    {
+      "path": "jetson/tools/b601_lerobot_export.py",
+      "sha256": "8ba8ac1b9621e06671de7dbc4018337d59253c08ebc924bdb53e9e59769a176c",
+      "bytes": 21004
+    },
+    {
+      "path": "jetson/tools/b601_pi05_remote_worker.py",
+      "sha256": "4f1564bfdd31fce1a9f7189356cfec70aa8b6566df458b2ac1c75cd8da6579f8",
+      "bytes": 2801
+    },
+    {
+      "path": "jetson/tools/b601_pi05_supervised_demo.py",
+      "sha256": "fc91dd02851a47aa5b7c46b0e8e9519ffc4dd08f6e316190e033a7e44f8616a9",
+      "bytes": 11413
+    },
+    {
+      "path": "jetson/tools/b601_preview_dashboard.html",
+      "sha256": "e4d1427a8ac6f97596e51e5aa18174d3a5a8fc8d016500031e9d500ddce03957",
+      "bytes": 8991
+    },
+    {
+      "path": "jetson/tools/b601_review.html",
+      "sha256": "2545a67bae83721c89b96640b43a98e00ec39fe5d9356a3b7304a2ffef49afdf",
+      "bytes": 4248
+    },
+    {
+      "path": "jetson/tools/b601_rs_calibrate.py",
+      "sha256": "50763490a2169345855a25c849e90741fdf249c6a9da9ec222147b348fec598f",
+      "bytes": 13743
+    },
+    {
+      "path": "jetson/tools/b601_rs_feedback.py",
+      "sha256": "0083a75a2d07e39b73c4497017be1abe18e9e79f78a2790d07a91d33d98a1463",
+      "bytes": 5750
+    },
+    {
+      "path": "jetson/tools/b601_rs_gravity.py",
+      "sha256": "c3637670890dedd1ac6dad32125a40440c19e6ec84884a9424194ca23a42ae83",
+      "bytes": 3670
+    },
+    {
+      "path": "jetson/tools/b601_rs_teleop.py",
+      "sha256": "c76d4b5a72a15b5f8f0299c6e16ab3443d297b9066865ef9783b7ec8bf62d1ee",
+      "bytes": 68444
+    },
+    {
+      "path": "jetson/tools/b601_telemetry.py",
+      "sha256": "ad59b3dc97e179be1bb409b61c2a57fc9cc59edb44c7fd15055d9f6a705797ab",
+      "bytes": 1409
+    },
+    {
+      "path": "jetson/tools/b601_teleop_manager.py",
+      "sha256": "9ff95f141734aab6b8d7fe00e788cc141559eebde074be4324382c5187814815",
+      "bytes": 17841
+    },
+    {
+      "path": "jetson/tools/b601_vla_filter.py",
+      "sha256": "b9f4d1d4bda223647a8d093527f12c2376e2bf97afcd0cad534e0e6009c6c18d",
+      "bytes": 1522
+    },
+    {
+      "path": "jetson/tools/b601_vla_inference_client.py",
+      "sha256": "4c91de0faf6d8a4d7c625540ab52811257c588ce41a714a3e12792e8f02c79f8",
+      "bytes": 5622
+    },
+    {
+      "path": "jetson/tools/b601_vla_model.py",
+      "sha256": "895895957591f5d3a4074f71a2f9333b8204f7cc78cc4078dd917c3a0f0f56aa",
+      "bytes": 3872
+    },
+    {
+      "path": "jetson/tools/b601_vla_motion.py",
+      "sha256": "09179e476d71e65c9f94515769d9dea46b2e657b3cec0547f79287e650ed3a9f",
+      "bytes": 14745
+    },
+    {
+      "path": "jetson/tools/b601_vla_runner.py",
+      "sha256": "c27d6feadff4b2c1cf3dbb3c75ba09f2f56077305984c892af36599677027a84",
+      "bytes": 51608
+    },
+    {
+      "path": "jetson/tools/camera_preview_ros_server.py",
+      "sha256": "9abd9ddc39ef6addac47274970a575b770e640141166642044e94447a2676d3a",
+      "bytes": 19566
+    },
+    {
+      "path": "jetson/tools/install_b601_web_io.sh",
+      "sha256": "015801d4e00f148c42a2860aa38a385aed4dec9632ae53ba40c75df9927156a1",
+      "bytes": 364
+    },
+    {
+      "path": "jetson/tools/run_b601_offline_checks.py",
+      "sha256": "f941a969aadc103890ad4165cd1a00cae681a5efcc2d5350775ed0825cf30d93",
+      "bytes": 1196
+    },
+    {
+      "path": "jetson/tools/star_arm_readonly.py",
+      "sha256": "ab7562a28a211aa59ac54687f6578256d55fd346942e7ddb277138264366e7e9",
+      "bytes": 5065
+    },
+    {
+      "path": "jetson/tools/test_b601_control_io.py",
+      "sha256": "24ec5322ed972960861108741c7081b9d558e78737b2b7936192e721a08917ac",
+      "bytes": 2195
+    },
+    {
+      "path": "jetson/tools/test_b601_control_timing.py",
+      "sha256": "711522c1713888a106802c018ef8be17ec346781ce6ac0ac0b3ea715affecf96",
+      "bytes": 831
+    },
+    {
+      "path": "jetson/tools/test_b601_dataset.py",
+      "sha256": "bfee86f140b897a115cc26ca52c5ed4a6d049eb66233fbc876e70a64256b72c0",
+      "bytes": 12517
+    },
+    {
+      "path": "jetson/tools/test_b601_fault_hold.py",
+      "sha256": "db062d34c324c4cb432022caab19ac46dc8f2feeab1edb893517de0148563860",
+      "bytes": 8262
+    },
+    {
+      "path": "jetson/tools/test_b601_grasp_observer.py",
+      "sha256": "a97f9451011657d2297674df5ddfb0795d5ff1d2a34ebdfb013b6e24b15038f8",
+      "bytes": 2570
+    },
+    {
+      "path": "jetson/tools/test_b601_lerobot_export.py",
+      "sha256": "1efa259c2b504d1d0c759f4c54f881096027565e7c298c16f121535d2bbd15c1",
+      "bytes": 7241
+    },
+    {
+      "path": "jetson/tools/test_b601_pi05_supervised_demo.py",
+      "sha256": "7d32542ac3e12e493f5c6d0a69e8b6850a8dc402d68e460cf1114ea939e66652",
+      "bytes": 1474
+    },
+    {
+      "path": "jetson/tools/test_b601_rs_feedback.py",
+      "sha256": "e529bbbae5f56859e81cfe9bb74795bee6b89df7f986f04a70491803488b01c8",
+      "bytes": 4897
+    },
+    {
+      "path": "jetson/tools/test_b601_rs_gravity.py",
+      "sha256": "e9fdf38b30828b92627b3c1b15a5b11a8bac3eadccbd2df87a23b5e73d7c2b4b",
+      "bytes": 2932
+    },
+    {
+      "path": "jetson/tools/test_b601_rs_teleop.py",
+      "sha256": "e60f2a421fc4f9343ea25d7a501611060c8a7a744c01fcb8f31211765bea12bd",
+      "bytes": 29518
+    },
+    {
+      "path": "jetson/tools/test_b601_teleop_manager.py",
+      "sha256": "aac7e071df6c778005e137ce47e6fc27fd09d11343a36f66c8bcff89972f7ec9",
+      "bytes": 8712
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_filter.py",
+      "sha256": "ae5439b99ca85778f903a4cc032821dc21daac59a1c1fb8394bdf613017118b7",
+      "bytes": 5524
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_inference_client.py",
+      "sha256": "11d530d9bf117a8d76b058a5fc20f53b2c6fe3170fadfe300746beb1fe0a671b",
+      "bytes": 3496
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_model.py",
+      "sha256": "b6701b68088de917dffd00ab20c55484e2d31db5a46f4dec85ca2d26b1205eeb",
+      "bytes": 2276
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_motion.py",
+      "sha256": "5c98beaf83e01a2b0853c30cf435aa626bf570758644c4e4f6c8f6197014e589",
+      "bytes": 6924
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_runner.py",
+      "sha256": "acc650150dfbe575dbd5b2909d8a08bc00d1eba5ecbf980d95b7c76f44075953",
+      "bytes": 20860
+    },
+    {
+      "path": "jetson/tools/test_b601_vla_step.py",
+      "sha256": "2ee287dcc8c579e474749e990430466b250ace24850b7b618abf5a651417fa89",
+      "bytes": 12258
+    },
+    {
+      "path": "requirements-client.txt",
+      "sha256": "9adcd749e8a93a6952c623c9aadd7687a6806974897d2023d5157cbfc2c0864a",
+      "bytes": 170
+    },
+    {
+      "path": "scripts/connect_cloud.sh",
+      "sha256": "8f28331a504b9e418df142965baa34ed0016efef799d892f1a6517390591b79e",
+      "bytes": 461
+    },
+    {
+      "path": "scripts/verify_source.py",
+      "sha256": "2442abc6609813a9e5992f25c3be5e30d97c67b13770007a1c5b3e3e11cfe2e6",
+      "bytes": 1392
+    },
+    {
+      "path": "server/environment/cloud-environment.json",
+      "sha256": "c68863de1d333b9eca6d5c3ccc6debf65c382af0220a6e9947870e2dd0697ced",
+      "bytes": 369
+    },
+    {
+      "path": "server/environment/openpi-pyproject.toml",
+      "sha256": "f4ce4e532da2dffdee51ecb3ebc0e34d435a164612f62083bd96cce0655e0073",
+      "bytes": 2737
+    },
+    {
+      "path": "server/environment/openpi-uv.lock",
+      "sha256": "1d95c48820a015be9cb305c9ae961ffc2c0dcc6072e3dca77602a0c8baf8d674",
+      "bytes": 764143
+    },
+    {
+      "path": "server/inference/b601-pi05-inference.service",
+      "sha256": "8724dd6b8fba9a17164ab92b01a6998a06622cf0bc8bdfadb1ef53a3925c9b80",
+      "bytes": 838
+    },
+    {
+      "path": "server/inference/serve_b601.py",
+      "sha256": "7bcfcad5cb21f2385ffa3599fb6416982e70ecbe868e29d8e4797381d2e2be6a",
+      "bytes": 3175
+    },
+    {
+      "path": "server/openpi_overlay/LICENSE",
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+      "bytes": 11356
+    },
+    {
+      "path": "server/openpi_overlay/run/launch.py",
+      "sha256": "623543aa80472ca65251b961da5fef2dcf902d9bc41fb9388e4e734d66a93e94",
+      "bytes": 1226
+    },
+    {
+      "path": "server/openpi_overlay/run/train_instrumented.py",
+      "sha256": "9dc497c1bc61af55943694ec8a036df55c1f64fb905b589f0052c08cea1defa3",
+      "bytes": 11144
+    },
+    {
+      "path": "server/openpi_overlay/scripts/train.py",
+      "sha256": "22f98a06aaa6e68e0f725d727ab95398238d1cae8a46bb94e829f330758a9baf",
+      "bytes": 10488
+    },
+    {
+      "path": "server/openpi_overlay/src/openpi/policies/b601_policy.py",
+      "sha256": "dfc5bc6eb0646af9838f66061eb2d1669eb250cb0190f3a55c7a050fd6ee9059",
+      "bytes": 1305
+    },
+    {
+      "path": "server/openpi_overlay/src/openpi/training/config.py",
+      "sha256": "9cf65a9b54fc0e21e8e3d183c1cf41a8f3c949994b529f407d3c5072cda73d67",
+      "bytes": 48053
+    },
+    {
+      "path": "server/openpi_overlay/src/openpi/training/data_loader.py",
+      "sha256": "21285e97ddc5d4d7db6d588ca49769b627d6e591bd064c4c23e6c453f7961415",
+      "bytes": 20345
+    },
+    {
+      "path": "third_party/seeed_b601/LICENSE",
+      "sha256": "819e0f2d335305e243e5f62efcc9442a7de4edcc2cc9094513dd33b6046f41d3",
+      "bytes": 1087
+    },
+    {
+      "path": "third_party/seeed_b601/assets/00-arm-rs_asm-v3.urdf",
+      "sha256": "2012b5aa3b58878109cb9e3c5deef919a87bd09a67d561662b2904a30dd4397e",
+      "bytes": 19458
+    },
+    {
+      "path": "third_party/seeed_b601/gravity.py",
+      "sha256": "e48f0293b8cb255a63ba21930d1a5a079c49557f5e1e67bfc6305a73ee661237",
+      "bytes": 15107
+    },
+    {
+      "path": "training/README.md",
+      "sha256": "0f4abe59c1266328527417b0db3df9e7287cfc772343c5f0ded51bf2568803b5",
+      "bytes": 723
+    },
+    {
+      "path": "training/episode_split.json",
+      "sha256": "090c001d94fa5425e81637abd5b80197e5dea3213ac1975fc0021b5d1c959fba",
+      "bytes": 2004
+    },
+    {
+      "path": "training/norm_stats.json",
+      "sha256": "5f1cb4eeecc9d4dd978123e9201f7a67e94b181f06ebb86aa499b801ff731d0e",
+      "bytes": 1027
+    }
+  ]
+}
