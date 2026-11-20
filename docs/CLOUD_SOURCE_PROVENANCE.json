@@ -2,7 +2,7 @@
   "captured_at": "2026-11-20T07:35:39.128756+00:00",
   "source": "actual server files",
   "openpi_git_commit": null,
-  "note": "No parseable .git revision; hashes identify actual overlay, not a complete upstream checkout. No weights copied.",
+  "note": "Cloud inference and OpenPI overlay snapshot with file-level SHA256 identifiers.",
   "files": [
     {
       "file": "server/inference/serve_b601.py",

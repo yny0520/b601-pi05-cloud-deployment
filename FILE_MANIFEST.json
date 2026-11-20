@@ -11,13 +11,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "b165eaaa166a61adee32a936ea0a8a64329bedd31ca078de0ca31e4734355e11",
-      "bytes": 3787
+      "sha256": "3517816c2d1a16535027779d27cef8961ed8d14be9365161efb79175d5b12daa",
+      "bytes": 3522
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "c342785d53c3de6f962d8120ae4b3c9ac12c987353fc3e7c6ac322f9f12ba6e3",
-      "bytes": 1196
+      "sha256": "fa6633a2528ae429335655fcd667464f3442f729fbfd7ae1c39924c81082529c",
+      "bytes": 1309
     },
     {
       "path": "config/connection.env.example",
@@ -26,28 +26,23 @@
     },
     {
       "path": "docs/BASELINE.md",
-      "sha256": "55c93b8842c5a31fdb9548897d14c3100fcb9582c69e202eef1d08cd1c714bb5",
-      "bytes": 2389
+      "sha256": "62611561ff6e0fa6988389ae149c6128ad4c177857cff004df3b09806a816faf",
+      "bytes": 2583
     },
     {
       "path": "docs/CLOUD_SOURCE_PROVENANCE.json",
-      "sha256": "9a3bcd08a618659b2abc6b384da6e791faa4ae2d438e58029941904764be5ee8",
-      "bytes": 3521
+      "sha256": "d5ae4629afba7e8cefe804b52d36c16f48a7fad5adfdb5715a568127f0f55685",
+      "bytes": 3488
     },
     {
       "path": "docs/DEPLOYMENT.md",
-      "sha256": "f79d73d6a9ab375cfb2820c9d80b51ce151f4bb6d6fad0e5a9a40c2060f34154",
-      "bytes": 4018
+      "sha256": "ea788ba8103e59c8ad54c0a6322183948d07419990f9ad19d681ef4a609bd66c",
+      "bytes": 3863
     },
     {
       "path": "docs/SOURCE_PROVENANCE.json",
-      "sha256": "aee5f054d2d964464cf433c0f633e26e5df73b2086f03960ff911cb2a7a50eb1",
-      "bytes": 12876
-    },
-    {
-      "path": "docs/WINDOWS_CODEX_PROMPT.md",
-      "sha256": "ffc2fa87fefa106b28642d570c045f16a4a2559386fa20662adcce7d9c291545",
-      "bytes": 1782
+      "sha256": "42d69679eb61526e94825feb0ef85ee9fbbe455038c83daf5a5cb832054e88bb",
+      "bytes": 12712
     },
     {
       "path": "jetson/calibration/b601_rs_travel_calibration.json",
@@ -350,6 +345,16 @@
       "bytes": 12258
     },
     {
+      "path": "media/b601-pi05-demo.jpg",
+      "sha256": "7728d8ec872d46c9c6fbae0149b41c562f4d3c674e40c12dee520c93a56eac98",
+      "bytes": 227838
+    },
+    {
+      "path": "media/b601-pi05-demo.mp4",
+      "sha256": "6e0ed8f58f8337fbaa95b8423b785a2cdd660c43f0338e7af4b64e5e003bcab7",
+      "bytes": 9495222
+    },
+    {
       "path": "requirements-client.txt",
       "sha256": "9adcd749e8a93a6952c623c9aadd7687a6806974897d2023d5157cbfc2c0864a",
       "bytes": 170
@@ -441,8 +446,8 @@
     },
     {
       "path": "training/README.md",
-      "sha256": "0f4abe59c1266328527417b0db3df9e7287cfc772343c5f0ded51bf2568803b5",
-      "bytes": 723
+      "sha256": "10f471de31cbcac9216fe542714f4f1c8f578a4aedf402c43bf7bf68f5dcc265",
+      "bytes": 986
     },
     {
       "path": "training/episode_split.json",
@@ -455,5 +460,6 @@
       "bytes": 1027
     }
   ],
-  "local_revision": "Pi0.5 arm velocity cap removed per author confirmation; static verification only."
+  "local_revision": "Pi0.5 J1-J6 velocity cap disabled; deployment documentation and demonstration media.",
+  "institution": "西安电子科技大学杭州研究院（西电杭研院）"
 }

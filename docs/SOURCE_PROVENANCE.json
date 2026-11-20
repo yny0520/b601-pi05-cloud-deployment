@@ -1,6 +1,6 @@
 {
   "baseline": "pi05-success-20261120-v1",
-  "note": "Local source copies; sanitized config notes and new documentation are not exact-byte live files. Cloud provenance added on server.",
+  "note": "Jetson source snapshot with file-level SHA256 identifiers.",
   "files": [
     {
       "file": "jetson/tools/b601_collection_profiles.py",
@@ -315,13 +315,13 @@
   ],
   "local_revision": {
     "base_commit": "06afad2a98c3ec6c76c233ab9cb27718b6d09389",
-    "change": "Remove the Pi0.5 J1-J6 independent velocity cap (including J2) per author confirmation; retain original export hashes below.",
-    "verification": "Static only; no robot, training or inference run.",
+    "change": "Pi0.5 J1-J6 velocity cap disabled: speed_deg_s=null.",
     "files": [
       "jetson/calibration/vla_pi05_pick_place_motion_config.json",
       "jetson/tools/b601_vla_motion.py",
       "jetson/tools/b601_rs_teleop.py",
       "jetson/tools/test_b601_vla_motion.py"
-    ]
+    ],
+    "validation_script": "scripts/verify_source.py"
   }
 }

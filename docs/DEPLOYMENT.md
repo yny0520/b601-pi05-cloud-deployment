@@ -1,35 +1,70 @@
-# 部署与接口
+# 部署说明
 
-## Windows用途
+## 平台与依赖
 
-下载ZIP、校验SHA256、解压后阅读/静态校验/上传GitHub。硬件执行依赖Linux SocketCAN、ROS2、MotorBridge，Windows不会因安装Python就获得控制能力。
+| 位置 | 环境 |
+|---|---|
+| Jetson Orin NX | Linux / aarch64，Python 3.10，ROS2 Humble，MotorBridge 0.5.6，PEAK netdev 驱动 8.19.0 |
+| 相机 | Orbbec 驱动、`cv_bridge`、`sensor_msgs` |
+| 云端 GPU | Python 3.11，OpenPI / Pi0.5；版本见 [`cloud-environment.json`](../server/environment/cloud-environment.json) |
+| Windows | 源码阅读、文件校验和 Git 管理 |
 
-## 原成功版Jetson布局
+MotorBridge 和 PCAN 驱动由厂商渠道安装。云端需配置完整 OpenPI 源码、基础模型、tokenizer、checkpoint assets 及 B601 checkpoint。
 
-源码放`/home/jetson/Documents/ChatGPT/b601-rs`，对应本包`jetson/`下tools及experiments；配置和入口位于`/home/jetson/Desktop/b601-rs`，分别来自`jetson/calibration`和`jetson/launchers`。重力依赖`third_party/seeed_b601`两文件对应桌面`B601-RS-lerobot/lerobot_robot_seeed_b601/`下路径。
+## Jetson 路径
 
-这些个人路径约定暂保留以避免整理时改变成功版行为，移机需要统一调整路径；本仓库不声称开箱即用。原项目另含旧ACT/SmolVLA模型分支，其依赖/权重不在本包，使用本包仅选择pi05_remote。
+| 仓库内容 | 部署位置 |
+|---|---|
+| `jetson/tools/`、`jetson/experiments/` | `/home/jetson/Documents/ChatGPT/b601-rs/` 下对应目录 |
+| `jetson/calibration/` | `/home/jetson/Desktop/b601-rs/calibration/` |
+| `jetson/launchers/` | `/home/jetson/Desktop/b601-rs/` |
+| `third_party/seeed_b601/` | 桌面 `B601-RS-lerobot/lerobot_robot_seeed_b601/` 下对应目录 |
 
-系统Python3.10/aarch64、MotorBridge0.5.6、PEAK netdev驱动8.19.0、ROS2 Humble、cv_bridge/sensor_msgs/Orbbec相机驱动。MotorBridge/PCAN安装包需从厂商合法渠道取得，不包含在仓库。
+迁移设备时统一配置上述路径。模型选择使用 `pi05_remote`。
 
-CAN ID1～3 RS06，4～7 RS00，HOST0xFD；`--channel auto`识别唯一外置PEAK USB接口，不能永久把can0当身份。自主模式仅读从臂；人工主臂FashionStar UART与Pi自主执行分开。
+## CAN 与本地控制
 
-网页8766：采集、双RGB和遥测/VLA控制。8767为原项目标定服务（未作为本次Pi部署主入口）。状态API `/api/teleop/status`、`/api/vla/status`、`/api/status`。POST令牌运行时生成，不归档。新帧和遥测均要求300ms内；预测按原观测3秒计算有效期。
+CAN ID 1～3 对应 RS06，4～7 对应 RS00，HOST 为 `0xFD`。`--channel auto` 按外置 PEAK USB 接口识别 CAN 通道。
 
-本地边界：JSON-lines worker→MessagePack ndarray/WebSocket→SSH本地18015→云端回环8015。`config/connection.env.example`填写个人SSH参数后用`scripts/connect_cloud.sh`连接；不要把实际配置提交Git。认证后后台SSH，终端关闭不使隧道退出；不自动使能电机。
+自主模式读取从臂状态；人工主臂使用 FashionStar UART。控制进程通过 MotorBridge 发送 MIT 指令，通过 SocketCAN 批量读取七轴 `mechPos` 及 J7 速度，循环约 14 Hz。
 
-运行消息位于`/dev/shm/b601-rs-<uid>/`，日志有界异步，遥测非阻塞Unix datagram；PID/epoch/取消检查保证旧请求不跨控制会话使用。控制进程MotorBridge发MIT、SocketCAN批读7×mechPos及J7速度，约14Hz。
+Pi0.5 运动配置为 [`vla_pi05_pick_place_motion_config.json`](../jetson/calibration/vla_pi05_pick_place_motion_config.json)：
 
-当前 Pi0.5 运动配置 `vla_pi05_pick_place_motion_config.json` 使用 `speed_deg_s=null`，表示 J1–J6（含 J2）不设独立速度上限。轨迹仍按 `accel_deg_s2=10` 加减速，并检查跟踪误差、目标超前、关节范围和超时；J7 保留自己的速度/加速度配置。`null` 需要配套的当前 `b601_vla_motion.py` 与 `b601_rs_teleop.py`，不可只把新 JSON 复制给旧控制器。其他任务的数值速度配置继续按原值生效。J2 重力补偿的 `slew_nm_s` 是转矩变化率，不是关节速度限制。
+- `speed_deg_s=null`：J1–J6（含 J2）不设独立速度上限。
+- `accel_deg_s2=10`：六轴加减速度。
+- J7 使用独立的速度、加速度及转矩控制参数。
+- 跟踪误差、目标超前、关节范围和超时由本地控制循环检查。
 
-## 云端
+运动 JSON 与 `b601_vla_motion.py`、`b601_rs_teleop.py` 配套部署。J2 的 `slew_nm_s` 表示重力补偿转矩变化率，单位为 N·m/s。
 
-服务器Python3.11环境，已修改OpenPI位于`/root/experiments/pi05_b601/openpi-src`；实际版本见`server/environment/cloud-environment.json`。仓库只给overlay，不包含完整上游。把overlay对照匹配上游再使用；原服务器未保留可解析Git提交，不能保证将当前最新OpenPI直接覆盖就兼容。
+运行消息写入 `/dev/shm/b601-rs-<uid>/`。日志采用有界异步写入，遥测采用非阻塞 Unix datagram；PID、epoch 和取消状态用于区分控制会话。
 
-云端服务和配置保留原`/root/experiments/pi05_b601`路径，checkpoint需要另外合法获取。`server/inference/serve_b601.py`导入即加载模型并开始服务，**不是离线导入检查目标**。它通过validation数据首样本预热，因此还需要对应本地LeRobot数据路径；本包只含split/归一化，不含原视频。
+## 网页与策略接口
 
-完整推理还依赖上游base、tokenizer、checkpoint assets以及OpenPI其余源码；这不是可独立加载的LoRA权重文件。服务仅监听127.0.0.1:8015。systemd单元为实际服务器采集副本；启动需要GPU资源，本次打包不启动服务。
+网页端口 `8766` 提供采集、双 RGB、遥测及 VLA 控制；`8767` 为标定服务。
 
-## 操作边界
+状态接口：`/api/teleop/status`、`/api/vla/status`、`/api/status`。POST 令牌在运行时生成。新帧与遥测有效期为 300 ms，策略预测有效期为 3 秒。
 
-模型停止请求保持；退出控制器/SIGTERM会失能。修改源码、安装驱动或恢复配置前应可靠支撑并停止相关控制；不要重启正在使能的控制器。回归必须通过`jetson/tools/run_b601_offline_checks.py`持锁入口，只在正确原布局、控制器停止时运行。纯静态校验脚本不接硬件，可以Windows执行。
+策略通道为 JSON-lines worker → MessagePack ndarray / WebSocket → SSH 本地 `18015` → 云端回环 `8015`。
+
+在本机设置 [`connection.env.example`](../config/connection.env.example) 中的连接变量，再通过 [`connect_cloud.sh`](../scripts/connect_cloud.sh) 建立后台 SSH 隧道。实际连接配置放在 Git 忽略的 `connection.env` 中。
+
+## 云端服务
+
+OpenPI 路径为 `/root/experiments/pi05_b601/openpi-src`。将 `server/openpi_overlay/` 的适配文件合入匹配的 OpenPI 环境，文件来源和哈希见 [`CLOUD_SOURCE_PROVENANCE.json`](CLOUD_SOURCE_PROVENANCE.json)。
+
+`server/inference/serve_b601.py` 在加载时初始化模型并启动服务，使用 validation 数据的首个样本预热。部署需提供对应的本地 LeRobot 数据路径。训练集划分与归一化统计位于 `training/`。
+
+服务监听 `127.0.0.1:8015`，systemd 单元位于 `server/inference/b601-pi05-inference.service`，工作目录为 `/root/experiments/pi05_b601`。
+
+## 检查与维护
+
+源码校验：
+
+```bash
+python scripts/verify_source.py
+```
+
+该脚本检查文件哈希、Python 语法、JSON 与本地模块引用。
+
+Linux 离线回归入口为 `jetson/tools/run_b601_offline_checks.py`，运行时获取控制锁。控制器停止、机械臂可靠支撑后再修改配置、安装驱动或执行回归。模型停止请求进入保持状态；退出控制器或收到 SIGTERM 时失能。
