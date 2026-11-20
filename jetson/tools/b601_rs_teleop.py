@@ -338,7 +338,8 @@ class Trajectory:
     def __init__(self, start, vmax, amax):
         self.position, self.velocity = list(start), [0.0]*7
         self.command_velocity = [0.0]*7
-        self.vmax = [float(vmax)]*7 if not isinstance(vmax, (list, tuple)) else list(map(float, vmax))
+        speeds = vmax if isinstance(vmax, (list, tuple)) else [vmax]*7
+        self.vmax = [None if v is None else float(v) for v in speeds]
         self.amax = [float(amax)]*7 if not isinstance(amax, (list, tuple)) else list(map(float, amax))
         if len(self.vmax) != 7 or len(self.amax) != 7:
             raise ValueError('轨迹速度/加速度必须是一个数或七个数')
@@ -360,14 +361,19 @@ class Trajectory:
                 # the goal, a 60ms approach avoids snapping velocity to zero.
                 ah = self.amax[i]*h
                 brake_speed = math.sqrt(ah*ah+2*self.amax[i]*abs(error))-ah
-                desired = math.copysign(min(self.vmax[i], brake_speed, abs(error)/.06), error)
+                desired_speed = min(brake_speed, abs(error)/.06)
+                if self.vmax[i] is not None:
+                    desired_speed = min(self.vmax[i], desired_speed)
+                desired = math.copysign(desired_speed, error)
                 vel += clamp(desired-vel, -ah, ah)
                 pos += vel*h
                 bounded = clamp(pos, *bounds[i])
                 if bounded != pos:
                     # Physical software bounds take precedence over ramps.
                     pos, vel = bounded, 0.0
-            self.command_velocity[i] = clamp((pos-before)/dt, -self.vmax[i], self.vmax[i])
+            command_velocity = (pos-before)/dt
+            self.command_velocity[i] = (command_velocity if self.vmax[i] is None else
+                                        clamp(command_velocity, -self.vmax[i], self.vmax[i]))
             self.position[i], self.velocity[i] = pos, vel
         return list(self.position)
 
@@ -976,9 +982,13 @@ def run(args):
                                 raise ValueError('滚动接续姿态超过300ms，已保持')
                             # Account for measured motion after a fresh snapshot;
                             # the legacy stationary path keeps its original tolerance.
+                            # Without a velocity cap, bound travel from current
+                            # command velocity and the existing acceleration limit.
                             allowances = [(2 if i==6 else .5) +
-                                ((vla_profile['gripper_speed_deg_s'] if i==6 else vla_profile['speed_deg_s'])*expected_age
-                                 if replacing else 0) for i in range(7)]
+                                ((vla_profile['gripper_speed_deg_s'] if i==6 else
+                                  vla_profile['speed_deg_s'] if vla_profile['speed_deg_s'] is not None else
+                                  abs(trajectory.command_velocity[i]) + .5*vla_profile['accel_deg_s2']*expected_age)*expected_age
+                                  if replacing else 0) for i in range(7)]
                             if (not isinstance(expected,list) or len(expected)!=7 or
                                     any(not isinstance(x,(int,float)) or not math.isfinite(x) for x in expected) or
                                     any(abs(actual[i]-expected[i]) > allowances[i] for i in range(7))):

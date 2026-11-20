@@ -22,7 +22,8 @@ flowchart LR
 
 - 第一轮33次预测/528完成点，用户现场确认成功；第二轮36次预测、35段560点完整执行，相机见抓取、入盒释放、回撤。
 - 第二轮七轴最高反馈温度46°C。没有统计成功率、长期可靠性或24小时连续运行验收。
-- 第二轮原180秒预算段内到期被软件记为error，额外监督回收未执行；Pi自身已回撤。已知问题保留，没有借整理更改行为。
+- 第二轮原180秒预算段内到期被软件记为error，额外监督回收未执行；Pi自身已回撤。已知问题保留。
+- 按作者确认，当前 Pi0.5 配置取消 J1–J6（含 J2）独立速度上限，`speed_deg_s=null`；本次代码修订仅做静态校验，历史演示记录不作为本次修订的真机复测结果。
 - 放置时手柄在盒内、杆端跨盒沿。视频暂未加入；演示录好后放入`media/`或README链接，不伪造视频/性能。
 
 ## Repository map
@@ -30,7 +31,7 @@ flowchart LR
 | Directory | Contents |
 |---|---|
 | `jetson/tools/` | 成功版控制/采集/远程worker及相关离线测试 |
-| `jetson/calibration/` | 成功版数值配置，去除历史私人备注 |
+| `jetson/calibration/` | 部署数值配置，Pi0.5 六轴速度上限已按作者确认取消 |
 | `jetson/launchers/` | 原Jetson Linux入口，涉及真实硬件 |
 | `server/inference/` | 本次从实际服务器采集的推理服务及unit |
 | `server/openpi_overlay/` | B601适配及实际修改的上游文件、训练runner，不是完整OpenPI |
@@ -49,6 +50,6 @@ flowchart LR
 
 ## Scope
 
-冻结成功版，未加入平滑调优。没有下载/发布checkpoint、训练视频、SDK二进制、内核驱动、密码或私人服务器地址。GitHub发布不包含下载过程用到的个人SSH信息。
+以成功版导出为基础，按作者确认取消 Pi0.5 六轴独立速度上限，未加入平滑调优。当前文件哈希见 `FILE_MANIFEST.json`；原导出来源哈希见 `docs/SOURCE_PROVENANCE.json`。没有下载/发布checkpoint、训练视频、SDK二进制、内核驱动、密码或私人服务器地址。GitHub发布不包含下载过程用到的个人SSH信息。
 
 OpenPI改动文件保留上游Apache-2.0许可证；Seeed依赖保留MIT许可证。自定义工程代码尚未指定开源许可证，上传GitHub不自动授予重许可；详见第三方说明。

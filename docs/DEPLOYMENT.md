@@ -20,6 +20,8 @@ CAN ID1～3 RS06，4～7 RS00，HOST0xFD；`--channel auto`识别唯一外置PEA
 
 运行消息位于`/dev/shm/b601-rs-<uid>/`，日志有界异步，遥测非阻塞Unix datagram；PID/epoch/取消检查保证旧请求不跨控制会话使用。控制进程MotorBridge发MIT、SocketCAN批读7×mechPos及J7速度，约14Hz。
 
+当前 Pi0.5 运动配置 `vla_pi05_pick_place_motion_config.json` 使用 `speed_deg_s=null`，表示 J1–J6（含 J2）不设独立速度上限。轨迹仍按 `accel_deg_s2=10` 加减速，并检查跟踪误差、目标超前、关节范围和超时；J7 保留自己的速度/加速度配置。`null` 需要配套的当前 `b601_vla_motion.py` 与 `b601_rs_teleop.py`，不可只把新 JSON 复制给旧控制器。其他任务的数值速度配置继续按原值生效。J2 重力补偿的 `slew_nm_s` 是转矩变化率，不是关节速度限制。
+
 ## 云端
 
 服务器Python3.11环境，已修改OpenPI位于`/root/experiments/pi05_b601/openpi-src`；实际版本见`server/environment/cloud-environment.json`。仓库只给overlay，不包含完整上游。把overlay对照匹配上游再使用；原服务器未保留可解析Git提交，不能保证将当前最新OpenPI直接覆盖就兼容。

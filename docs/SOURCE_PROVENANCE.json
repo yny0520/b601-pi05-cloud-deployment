@@ -312,5 +312,16 @@
       "sha256": "819e0f2d335305e243e5f62efcc9442a7de4edcc2cc9094513dd33b6046f41d3",
       "origin": "Seeed MIT"
     }
-  ]
+  ],
+  "local_revision": {
+    "base_commit": "06afad2a98c3ec6c76c233ab9cb27718b6d09389",
+    "change": "Remove the Pi0.5 J1-J6 independent velocity cap (including J2) per author confirmation; retain original export hashes below.",
+    "verification": "Static only; no robot, training or inference run.",
+    "files": [
+      "jetson/calibration/vla_pi05_pick_place_motion_config.json",
+      "jetson/tools/b601_vla_motion.py",
+      "jetson/tools/b601_rs_teleop.py",
+      "jetson/tools/test_b601_vla_motion.py"
+    ]
+  }
 }

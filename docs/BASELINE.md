@@ -1,6 +1,6 @@
 # 成功基线 2026-11-20 v1
 
-本仓库是展示/交接导出，不覆盖原运行目录，也不是全系统回退镜像。调优未实施。
+本仓库是展示/交接导出，不覆盖原运行目录，也不是全系统回退镜像。按作者确认，当前 Pi0.5 配置已取消 J1–J6（含 J2）独立速度上限。原下载 ZIP 内的 `speed_deg_s=5.0` 已在当前 Git 版本改为 `null`；原 ZIP 保留作为历史归档。该修订只做静态校验，以下演示记录为原有记录，本次没有重新执行机器人或测量性能。
 
 模型`pi05_b601_lora_6000`，最终checkpoint`formal_20261120_01/5999`对应6000更新。输入camera1顶置640×480 RGB、camera2腕部640×360 RGB、七维实测绝对弧度、英文任务；输出16×7绝对弧度。边界度/弧度转换一次，不再套主从臂缩放。
 
@@ -8,7 +8,7 @@
 
 - 训练14Hz、horizon16、batch8、6000更新；59个训练episodes/15,997帧，train-only z-score。LoRA gemma_2b_lora + gemma_300m_lora，内部32维接口取前7维；推理10步flow。
 - `complete_chunk=true`、`continuous_plan=true`、`rolling_replan=false`；每16点完整顺序执行后重观察。
-- 六轴5°/s、10°/s²；J7 60°/s、120°/s²。40轮/180秒。
+- 六轴 `speed_deg_s=null`，不设独立速度上限；加速度10°/s²。J7 60°/s、120°/s²。40轮/180秒。
 - 六轴lead8°、abort10°、settle3.5°；J7 lead45°、abort50°、settle25°；观测3秒时效、段35秒、4秒无推进停止。
 - `task_bounds_deg=null`、`grasp_gate=false`、`action_filter_enabled=false`，底层既有范围仍保留；配置JSON为具体字段来源。
 - 六轴Kp[50,150,150,60,50,50]、Kd[3,10,10,5,4,4]。

@@ -2,7 +2,7 @@
   "version": "b601-pi05-deployment-v1",
   "created_at": "2026-11-20T07:35:39.244968+00:00",
   "weights_included": false,
-  "motion_tuning_applied": false,
+  "motion_tuning_applied": true,
   "files": [
     {
       "path": ".gitignore",
@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "c93fedf68af5f8ba9cbd6f28ecf25634d98a3829d2f9c1c2158b8c7bcaa73917",
-      "bytes": 3417
+      "sha256": "b165eaaa166a61adee32a936ea0a8a64329bedd31ca078de0ca31e4734355e11",
+      "bytes": 3787
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -26,8 +26,8 @@
     },
     {
       "path": "docs/BASELINE.md",
-      "sha256": "62bdbbcf690432dda9e6bc34fb4dd96b5d05c8a3d21b45638a932a521bee8eb8",
-      "bytes": 2040
+      "sha256": "55c93b8842c5a31fdb9548897d14c3100fcb9582c69e202eef1d08cd1c714bb5",
+      "bytes": 2389
     },
     {
       "path": "docs/CLOUD_SOURCE_PROVENANCE.json",
@@ -36,18 +36,18 @@
     },
     {
       "path": "docs/DEPLOYMENT.md",
-      "sha256": "1f0f634d1582574dc7f85a60e31902b7251b235efca6f9999b5d2cd81be06da6",
-      "bytes": 3462
+      "sha256": "f79d73d6a9ab375cfb2820c9d80b51ce151f4bb6d6fad0e5a9a40c2060f34154",
+      "bytes": 4018
     },
     {
       "path": "docs/SOURCE_PROVENANCE.json",
-      "sha256": "7c48be09d4a7b38d81cb7f2b940176dcb7d788ebd62e263d66ac6ebfa321d09c",
-      "bytes": 12357
+      "sha256": "aee5f054d2d964464cf433c0f633e26e5df73b2086f03960ff911cb2a7a50eb1",
+      "bytes": 12876
     },
     {
       "path": "docs/WINDOWS_CODEX_PROMPT.md",
-      "sha256": "8d4cd5ee2f97ff97823c7a0d03ab1055e1b102901d8e044c1d0187f3bc5a47f7",
-      "bytes": 1535
+      "sha256": "ffc2fa87fefa106b28642d570c045f16a4a2559386fa20662adcce7d9c291545",
+      "bytes": 1782
     },
     {
       "path": "jetson/calibration/b601_rs_travel_calibration.json",
@@ -81,8 +81,8 @@
     },
     {
       "path": "jetson/calibration/vla_pi05_pick_place_motion_config.json",
-      "sha256": "fffd603f2e96e37b29ae6b0e76a696d4b5e52aed3998bdbf97e760af44d1b597",
-      "bytes": 866
+      "sha256": "f5500950382b8b7cf6820cf031baff117c93dd5ec7f4ca7d1b035861dfca3d16",
+      "bytes": 867
     },
     {
       "path": "jetson/experiments/pi05_b601/remote_inference_client.py",
@@ -206,8 +206,8 @@
     },
     {
       "path": "jetson/tools/b601_rs_teleop.py",
-      "sha256": "c76d4b5a72a15b5f8f0299c6e16ab3443d297b9066865ef9783b7ec8bf62d1ee",
-      "bytes": 68444
+      "sha256": "16b88ac3e9cdeee4e942c181c418de774d4e9088c746218b0fdc603fb369472d",
+      "bytes": 69126
     },
     {
       "path": "jetson/tools/b601_telemetry.py",
@@ -236,8 +236,8 @@
     },
     {
       "path": "jetson/tools/b601_vla_motion.py",
-      "sha256": "09179e476d71e65c9f94515769d9dea46b2e657b3cec0547f79287e650ed3a9f",
-      "bytes": 14745
+      "sha256": "e4b43cfaabee56263ffd39c78632403d052541d7285c12ffbec06ef2aaa3e212",
+      "bytes": 14971
     },
     {
       "path": "jetson/tools/b601_vla_runner.py",
@@ -336,8 +336,8 @@
     },
     {
       "path": "jetson/tools/test_b601_vla_motion.py",
-      "sha256": "5c98beaf83e01a2b0853c30cf435aa626bf570758644c4e4f6c8f6197014e589",
-      "bytes": 6924
+      "sha256": "e3e4fbfa6ad61600fbbe0731640a7b88b76de217b4d14be6ba2d845eb9b61129",
+      "bytes": 8821
     },
     {
       "path": "jetson/tools/test_b601_vla_runner.py",
@@ -454,5 +454,6 @@
       "sha256": "5f1cb4eeecc9d4dd978123e9201f7a67e94b181f06ebb86aa499b801ff731d0e",
       "bytes": 1027
     }
-  ]
+  ],
+  "local_revision": "Pi0.5 arm velocity cap removed per author confirmation; static verification only."
 }

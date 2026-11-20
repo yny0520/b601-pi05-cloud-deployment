@@ -1,9 +1,43 @@
+import math
 import unittest
-from b601_vla_motion import DEFAULT_PROFILE, validate_profile, VlaPlan
+from b601_vla_motion import DEFAULT_PROFILE, validate_profile, describe_profile, VlaPlan
 from b601_rs_teleop import bounded_vla_targets, Trajectory
 
 
 class MotionProfileTests(unittest.TestCase):
+    def test_profile_without_arm_velocity_cap_is_described(self):
+        profile = validate_profile({**self.profile(), 'speed_deg_s':None,
+                                    'gripper_speed_deg_s':60.})
+        self.assertIsNone(profile['speed_deg_s'])
+        self.assertIn('J1–J6不设独立速度上限', describe_profile(profile))
+        self.assertEqual(profile['accel_deg_s2'], 10.)
+        self.assertEqual(profile['gripper_speed_deg_s'], 60.)
+
+    def test_no_arm_velocity_cap_preserves_acceleration_gripper_and_lead_limits(self):
+        start = [0.]*7
+        bounds = [[-180.,340.]]*7
+        trajectory = Trajectory(start, [None]*6+[60.], [10.]*6+[120.])
+        previous_velocity = list(trajectory.velocity)
+        for _ in range(30):
+            trajectory.step([90.]*6+[300.], .1, bounds)
+            for i in range(7):
+                self.assertTrue(math.isfinite(trajectory.position[i]))
+                self.assertLessEqual(abs(trajectory.velocity[i]-previous_velocity[i]),
+                                     trajectory.amax[i]*.1+1e-8)
+            self.assertLessEqual(abs(trajectory.command_velocity[6]), 60.+1e-8)
+            previous_velocity = list(trajectory.velocity)
+        self.assertTrue(all(abs(v)>5. for v in trajectory.command_velocity[:6]))
+        command, limited = trajectory.limit_lead(start, [8.]*6+[45.], bounds)
+        self.assertIn(2, limited)
+        self.assertLessEqual(abs(command[1]), 8.)
+        self.assertEqual(trajectory.command_velocity[1], 0.)
+
+    def test_only_arm_velocity_cap_accepts_null(self):
+        self.assertIsNone(validate_profile({**self.profile(), 'speed_deg_s':None})['speed_deg_s'])
+        for key in ('accel_deg_s2', 'gripper_speed_deg_s', 'lead_deg'):
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                validate_profile({**self.profile(), key:None})
+
     def test_legacy_profile_is_upgraded_without_losing_limits(self):
         legacy={k:v for k,v in DEFAULT_PROFILE.items() if k not in ('task_bounds_deg','action_steps')}
         self.assertEqual(validate_profile(legacy), DEFAULT_PROFILE)

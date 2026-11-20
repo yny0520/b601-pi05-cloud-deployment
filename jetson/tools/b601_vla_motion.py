@@ -68,6 +68,8 @@ def validate_profile(value):
                 raise ValueError('任务关节范围无效')
     for key, maximum in maxima.items():
         v = result[key]
+        if key == 'speed_deg_s' and v is None:
+            continue  # No separate J1-J6 velocity cap; acceleration still applies.
         if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or not 0 < v <= maximum:
             raise ValueError(f'VLA运动配置{key}无效')
     if not isinstance(result['max_steps'], int) or not isinstance(result['action_steps'],int):
@@ -94,8 +96,9 @@ def describe_profile(p):
              '运动中滚动重观察，' if p.get('rolling_replan') else '')+
             (f"每段最多{p['action_steps']}步预测，" if p['continuous_plan'] else f"每步指令≤{p['command_step_deg']:g}°，")+
             ('J1–J6短窗滤波已开（J7原样），' if p.get('action_filter_enabled') else '')+
-            f"目标超前≤{p['lead_deg']:g}°，"
-            f"速度{p['speed_deg_s']:g}°/s，"+
+            f"目标超前≤{p['lead_deg']:g}°，"+
+            ('J1–J6不设独立速度上限，' if p['speed_deg_s'] is None else
+             f"速度{p['speed_deg_s']:g}°/s，")+
             ('按示范任务范围执行；' if p['task_bounds_deg'] is not None else f"起点±{p['session_span_deg']:g}°；")+
             f"最多{p['max_steps']}轮/{p['max_seconds']:g}秒；" +
             (("J7连续开合、" if p['continuous_plan'] else f"J7每步≤{p['gripper_step_deg']:g}°、")+
@@ -185,8 +188,8 @@ def validate_plan_replacement(request, active, profile):
 class VlaPlan:
     """Advance a finite model path in the hardware loop without stopping at each point.
 
-    The original Trajectory enforces speed, acceleration and measured command
-    lead on every real I/O cycle. Progress is tied to that bounded command,
+    Trajectory enforces acceleration, measured command lead and any configured
+    velocity cap on every real I/O cycle. Progress is tied to that bounded command,
     so a slow or blocked joint does not silently consume the rest of the path.
     """
     def __init__(self, actions, actual, command, origin, bounds, profile):

@@ -3,7 +3,7 @@
   "lead_deg": 8.0,
   "abort_error_deg": 10.0,
   "session_span_deg": 180.0,
-  "speed_deg_s": 5.0,
+  "speed_deg_s": null,
   "accel_deg_s2": 10.0,
   "settle_error_deg": 3.5,
   "max_steps": 40,
