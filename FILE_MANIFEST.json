@@ -11,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "3517816c2d1a16535027779d27cef8961ed8d14be9365161efb79175d5b12daa",
-      "bytes": 3522
+      "sha256": "9027d81fb764ad27a6cd57db86c696f8509ed3960a688f8567cc7576d7bfb3e1",
+      "bytes": 3549
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -353,6 +353,11 @@
       "path": "media/b601-pi05-demo.mp4",
       "sha256": "6e0ed8f58f8337fbaa95b8423b785a2cdd660c43f0338e7af4b64e5e003bcab7",
       "bytes": 9495222
+    },
+    {
+      "path": "media/b601-pi05-grasp.jpg",
+      "sha256": "400d2252820240cf2347ef2144b14c871481e46b55f18ea9214e61444fca9196",
+      "bytes": 196380
     },
     {
       "path": "requirements-client.txt",

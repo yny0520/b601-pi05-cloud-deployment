@@ -4,9 +4,11 @@
 
 基于 Pi0.5/OpenPI 的 B601 微调适配与云端部署工程。系统融合顶置、腕部双相机观测与七维关节状态，在云端生成动作序列，由 Jetson Orin NX 驱动 B601-RS 机械臂完成螺丝刀抓取、盒内放置与回撤。
 
-## 演示视频
+## 实机演示
 
-[![B601-Pi0.5 云端 VLA 演示](media/b601-pi05-demo.jpg)](media/b601-pi05-demo.mp4)
+![B601-RS 机械臂抓取螺丝刀](media/b601-pi05-grasp.jpg)
+
+*B601-RS 抓取螺丝刀，视频第 6.6 秒。*
 
 [观看演示视频 · MP4](media/b601-pi05-demo.mp4)
 
